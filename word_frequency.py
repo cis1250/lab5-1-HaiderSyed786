@@ -28,11 +28,11 @@ def is_sentence(text):
 
 def get_sentence():
     while True:
-        sentence = input("Please enter sentence")
+        sentence = input("Please enter sentence: ")
     if is_sentence(sentence):
-                return sentence
+        return sentence
     else:
-                print("Error: Sentence must start with a capital letter and end with punctuation (., !, ?).")
+        print("Error: Sentence must start with a capital letter and end with punctuation (., !, ?).")
 
 def calculate_frequencies(sentence):
     word = sentence[:-1].split()
@@ -41,11 +41,11 @@ def calculate_frequencies(sentence):
 
     for word in words:
         if word in wordList:
-         index = wordList.index(word)
-         freqList[index] += 1
+             index = wordList.index(word)
+             freqList[index] += 1
         else:
-         wordList.append(word)
-         freqList.append(1)
+             wordList.append(word)
+             freqList.append(1)
         return wordList, freqList
 
 #print the results
