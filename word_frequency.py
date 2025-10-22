@@ -56,11 +56,11 @@ def printFrequencies(words, freqs):
 
 
 def main():
-    sentence = getSentence()
-    words, freqs = calculateFrequencies(sentence)
+    sentence = get_sentence()
+    words, freqs = calculate_frequencies(sentence)
     printFrequencies(words, freqs)
 
-main()
+
 
 
 
