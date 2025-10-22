@@ -61,7 +61,7 @@ def main():
     printFrequencies(words, freqs)
 
 
-maim()
+main()
 
 
 
