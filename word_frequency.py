@@ -27,7 +27,7 @@ def is_sentence(text):
     return True
 
 def get_sentence():
-    while true
+    while True:
         sentence = input("Please enter sentence")
             if the_sentence(sentence):
                 return sentence
