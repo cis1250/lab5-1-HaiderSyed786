@@ -26,43 +26,56 @@ def is_sentence(text):
 
     return True
 
+# Function to get and validate user input
 def get_sentence():
     while True:
-        sentence = input("Please enter sentence: ")
-    if is_sentence(sentence):
-        return sentence
-    else:
-        print("Error: Sentence must start with a capital letter and end with punctuation (., !, ?).")
+        sentence = input("Enter a sentence: ")
+        if is_sentence(sentence):
+            return sentence
+        else:
+            print("Invalid sentence. Sentence should start with a capital letter and end with a punctuation.")
 
+
+# Function to calculate word frequencies
 def calculate_frequencies(sentence):
-    word = sentence[:-1].split()
-    wordlist = []
-    freqlist = []
+    words = sentence.split() # Split sentence into words
+
+    # Lists for unique words and their counts
+    unique_words = []
+    frequencies = []
 
     for word in words:
-        if word in wordList:
-             index = wordList.index(word)
-             freqList[index] += 1
+        # Clean up punctuations for counting
+        word_clean = word.strip('.,!?')
+
+        # Make lowercase for consistent counting
+        word_clean = word_clean.lower()
+
+        if word_clean in unique_words:
+            index = unique_words.index(word_clean)
+            frequencies[index] += 1
         else:
-             wordList.append(word)
-             freqList.append(1)
-        return wordList, freqList
+            unique_words.append(word_clean)
+            frequencies.append(1)
 
-#print the results
-def printFrequencies(words, freqs):
-    print("\nWord frequencies:")
+    return unique_words, frequencies
+
+# Function to print the frequencies
+def print_frequencies(words, counts):
+    print("\nWord Frequencies:")
     for i in range(len(words)):
-        print(words[i], "-", freqs[i])
+        print(f"{words[i]}: {counts[i]}")
 
 
+# Main program
 def main():
     sentence = get_sentence()
-    words, freqs = calculate_frequencies(sentence)
-    printFrequencies(words, freqs)
+    words, counts = calculate_frequencies(sentence)
+    print_frequencies(words, counts)
 
 
+# Run the program
 main()
-
 
 
 
